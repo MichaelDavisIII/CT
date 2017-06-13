@@ -1,53 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+// Main Index.js file for the app.//
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+//import { connect } from 'react-redux';
+import { Scene, Router } from 'react-native-router-flux';
+//import { View } from 'react-native';
+import { AppRegistry } from 'react-native';
+import HomeS from './src/components/screens/HomeS';
+import S1 from './src/components/screens/S1';
+import S2 from './src/components/screens/S2';
+import S3 from './src/components/screens/S3';
+import S4 from './src/components/screens/S4';
+import S5 from './src/components/screens/S5';
 
 export default class CT extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+    render() {
+        return(
+            <Router key="root">
+                <Scene>
+                    <Scene key = "HomeS" Component = { HomeS } title = "HomeS" initial = { true } />
+                    <Scene key = "S1" Component = { S1 } title = "S1" />
+                    <Scene key = "S2" Component = { S2 } title = "S2" />
+                    <Scene key = "S2" Component = { S2 } title = "S2" />
+                    <Scene key = "S3" Component = { S3 } title = "S3" />
+                    <Scene key = "S4" Component = { S4 } title = "S4" />
+                    <Scene key = "S5" Component = { S5 } title = "S5" />
+                </Scene>
+            </Router>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
-AppRegistry.registerComponent('CT', () => CT);
+
+
+AppRegistry.registerComponent(`CT`, () => CT);
